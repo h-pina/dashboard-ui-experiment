@@ -1,0 +1,272 @@
+:root{
+    --light: #ffffff;
+    --mid: #dddddd;
+    --dark: #3d3d3d;
+    --green: #36e07d;
+    --red: #861111;
+}
+
+*{
+    margin: 0;
+}
+
+html{
+    height: 100%;
+
+}
+
+body{
+    height: 100%;
+    display: flex;
+    transition: color  0.5 ease, background-color  0.5 ease;
+    background-color: var(--light);
+}
+
+
+body.dark{
+    --light: #3f3f3f;
+    --mid: #2c2c2c;
+    --dark: #f3f3f3;
+    --green: #00fc6d;
+    --red: #f04d4d;
+}
+
+a {
+    text-decoration: none;
+    font: 1.7rem "Ubuntu";
+    color: var(--dark);
+}
+
+.sidebar{
+    background-color: var(--mid);
+    width: 250px;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(.62,-0.01,.32,.98);
+}
+
+.closed{
+    width: 70px;
+}
+
+
+.sidebar .sdb-header{
+    height: 95px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .bx{
+    font-size: 1.8rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all 0.5s ease;
+}
+
+.sidebar .sdb-header span {
+    font-weight: 700;
+}
+
+.sidebar .menu-list{
+    list-style: none;
+    padding: 0;
+    margin-top:10vh;
+}
+
+.sidebar .menu-list li {
+    margin-top: 3vh;
+    transition: all 0.5s ease;
+}
+
+.sidebar .menu-list li.selected a {
+    background-color: var(--light);
+    border-radius: 20px 0 0 20px ;
+    padding-bottom: 8px;
+    padding-top: 10px;
+    color: var(--green);
+    transition: all 0.5s ease;
+}
+
+.sidebar .menu-list li a{
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.sidebar .logout a{
+    color: var(--red);
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+}
+
+.content nav{
+    width: 100%;
+    height: 8%;
+    background-color: var(--mid);
+    display: flex;
+    align-items: center;
+}
+
+.content nav .bx{
+    font-size: 1.8rem;
+}
+
+.content nav .burguer{
+    width: 5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content nav .burguer i{
+    color: var(--dark);
+    cursor: pointer;
+}
+
+.content nav .search{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.content nav .search input{
+    width: 70%;
+    height: 2rem;
+    margin-right: 1rem;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font: 0.8rem 'Ubuntu' ;
+    outline: none;
+    border: none;
+    border-color: none;
+    appearance: none;
+    box-shadow: none;
+}
+
+.content nav .search .bx{
+    color: var(--dark);
+}
+
+
+.content nav .toggle{
+    margin-left: 60%;
+    background-color: var(--light);
+    color: var(--dark);
+    position: relative;
+    height: 2rem;
+    width: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer
+}
+
+.content nav .toggle .bxs-circle{
+    margin-left: 5px;
+    transition: all 0.5s ease;
+}
+
+
+.content nav .toggle .bxs-circle.toggled{
+    margin-left: 45px;
+}
+
+.content main{
+    width: 100%;
+    height: 92%;
+    background-color: var(--light);
+}
+
+.content main .container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: center;
+    justify-items: center;
+}
+
+.content main .container div{
+    width: 80%;
+    height: 80%;
+    border-radius: 40px;
+    background-color: var(--mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: var(--light);
+    transition: all 0.2s ease;
+}
+
+.content main .container div:hover{
+    box-shadow: -1px 15px 36px -19px rgba(0,0,0,0.44);
+ 
+}
+
+.content main .container .contacts{
+    grid-column: 1/span 2;
+}
+
+.content main .container .todo{
+    grid-column: 3/span 2;
+}
+
+
+
+@media (max-width: 1000px) {
+    .sidebar{
+        width: 70px;
+    } 
+    .sidebar .bx{
+        padding-left: 15px;
+        padding-right: 20px;
+    }
+    .content nav .burguer{
+        width: 20%;
+    }
+
+    .content nav .toggle{
+        margin-left: 20%;
+    }
+
+    .content nav .search input{
+        display: none;
+    }
+}
+
+
+@media (max-width: 300px) {
+    .sidebar{
+        width: 0;
+    } 
+    .content nav .burguer{
+        width: 20%;
+    }
+    .content nav .search{
+        display: none;
+    }
+
+
+    .content nav .toggle{
+        display: none;
+    }
+
+    .content nav .search input{
+        width: 0;
+        padding: 0;
+    }
+}
+
+
